@@ -66,5 +66,15 @@ import org.junit.runner.RunWith;
       assertEquals(expected, actual);
   }
 
+  @Test
+  @Parameters({
+    "masă, ma-să" 
+  })
+  public void testRo(String input, String expected) {
+    HyphenationPattern us = HyphenationPattern.lookup("ro");
+    Hyphenator h = Hyphenator.getInstance(us);
+    String actual = join(h.hyphenate(input), "-");
+    assertEquals(expected, actual);
+  }
 
 }
